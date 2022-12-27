@@ -1,7 +1,9 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+
 const CardMovie = ({ mov }) => {
-  return (
+  console.log(mov.poster_path);
+  return mov.poster_path === null ? null : (
     <Col xs="6" sm="6" md="4" lg="3" className="my-1">
       <div>
         <div className="card">
