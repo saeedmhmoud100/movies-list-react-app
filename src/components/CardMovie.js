@@ -9,7 +9,7 @@ const CardMovie = ({ mov }) => {
         <div>
           <div className="card">
             <img
-              src={`http://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
               className="card__image"
               alt="hu"
             />
