@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import MoviesList from "./components/MoviesList";
-import MyPagination from "./components/MyPagination";
 import NavBar from "./components/NavBar";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MovieDetails from "./components/MovieDetails";
+import ErrorNotFound from "./components/ErrorNotFound";
 const API_KEY = "a277e16bf8ca84e2eb0ef98e9d176a7d";
 
 function App() {
@@ -41,11 +42,21 @@ function App() {
     <div className="font color-body">
       <NavBar search={getMovies} />
       <Container>
-        <MoviesList
-          MoviesData={MoviesData}
-          getPage={getPage}
-          total_pages={total_pages}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MoviesList
+                MoviesData={MoviesData}
+                getPage={getPage}
+                total_pages={total_pages}
+              />
+            }
+          />
+
+          <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="*" element={<ErrorNotFound />} />
+        </Routes>
       </Container>
     </div>
   );
