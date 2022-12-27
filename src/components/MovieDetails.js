@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
-function MovieDetails() {
+function MovieDetails({ API_KEY }) {
   const params = useParams();
   const [movie, setMovie] = useState({});
 
   const getMovieDetails = async (id) => {
     const m = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=a277e16bf8ca84e2eb0ef98e9d176a7d&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
     );
 
     setMovie(m.data);
@@ -74,7 +73,7 @@ function MovieDetails() {
               Home Page
             </button>
           </Link>
-          <a href={movie.homepage} target="_blank">
+          <a href={movie.homepage} target="_blank" rel="noreferrer">
             <button
               style={{ backgroundColor: "#b45b35", border: "none" }}
               className="btn btn-primary"

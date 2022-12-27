@@ -11,7 +11,9 @@ function MoviesList({ MoviesData, getPage, total_pages }) {
       ) : (
         <h2 className="text-center mt-4">there are no movies...</h2>
       )}
-      <MyPagination getPage={getPage} total_pages={total_pages} />
+      {MoviesData.length > 0 ? (
+        <MyPagination getPage={getPage} total_pages={total_pages} />
+      ) : null}
     </Row>
   );
 }
