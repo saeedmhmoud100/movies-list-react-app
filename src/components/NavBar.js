@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 
-const NavBar = () => {
+const NavBar = ({ search }) => {
   return (
     <div className="nav-style w-100">
       <Container>
@@ -23,6 +23,7 @@ const NavBar = () => {
                 type="text"
                 className="form-control"
                 placeholder="Search"
+                onChange={(e) => search(e.target.value)}
               />
             </div>
           </Col>

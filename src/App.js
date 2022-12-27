@@ -8,20 +8,26 @@ const API_KEY = "a277e16bf8ca84e2eb0ef98e9d176a7d";
 
 function App() {
   const [MoviesData, setMoviesData] = useState([]);
-  const getAllMovies = async (_) => {
-    const movies = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-    );
-
+  let movies = [];
+  const getMovies = async (search_val) => {
+    if (search_val === "" || search_val === undefined) {
+      movies = await axios.get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+      );
+    } else {
+      movies = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=a277e16bf8ca84e2eb0ef98e9d176a7d&language=en-US&page=1&include_adult=false&query=${search_val}`
+      );
+    }
     setMoviesData(movies.data.results);
   };
   useEffect(() => {
-    getAllMovies();
+    getMovies();
   }, []);
 
   return (
     <div className="font color-body">
-      <NavBar />
+      <NavBar search={getMovies} />
       <Container>
         <MoviesList MoviesData={MoviesData} />
       </Container>
