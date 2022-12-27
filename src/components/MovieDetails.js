@@ -65,7 +65,7 @@ function MovieDetails({ API_KEY }) {
           sm="12"
           className="mt-2 d-flex justify-content-center "
         >
-          <Link to="/">
+          <Link to="/movies-list-react-app/">
             <button
               style={{ backgroundColor: "#b45b35", border: "none" }}
               className="btn btn-primary mx-2"
