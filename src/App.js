@@ -17,11 +17,11 @@ function App() {
     let movies = [];
     if (search_val === "" || search_val === undefined) {
       movies = await axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        `http://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
       );
     } else {
       movies = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${search_val}`
+        `http://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${search_val}`
       );
     }
     settotal_pages(movies.data.total_pages);
@@ -34,7 +34,7 @@ function App() {
 
   const getPage = async (page) => {
     const movies = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+      `http://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
     );
     setMoviesData(movies.data.results);
   };

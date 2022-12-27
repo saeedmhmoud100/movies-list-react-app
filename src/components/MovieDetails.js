@@ -8,7 +8,7 @@ function MovieDetails({ API_KEY }) {
 
   const getMovieDetails = async (id) => {
     const m = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
+      `http://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
     );
 
     setMovie(m.data);
@@ -25,7 +25,7 @@ function MovieDetails({ API_KEY }) {
           <div className="card-detalis  d-flex align-items-center ">
             <img
               className="img-movie w-30"
-              src={`https://image.tmdb.org/t/p/w500/` + movie.poster_path}
+              src={`http://image.tmdb.org/t/p/w500/` + movie.poster_path}
               alt="ascad"
             />
             <div className="justify-content-center text-center  mx-auto">
