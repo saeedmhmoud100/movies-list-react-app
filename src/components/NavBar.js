@@ -9,7 +9,7 @@ const NavBar = ({ search }) => {
       <Container>
         <Row className="pt-2 ">
           <Col xs="2" lg="1">
-            <Link to="/">
+            <Link to="/movies-list-react-app/">
               <img className="logo" src={"." + logo} alt="dfs" />
             </Link>
           </Col>

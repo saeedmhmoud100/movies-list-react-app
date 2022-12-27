@@ -45,7 +45,7 @@ function App() {
       <Container>
         <Routes>
           <Route
-            path="/"
+            path="/movies-list-react-app/"
             element={
               <MoviesList
                 MoviesData={MoviesData}
@@ -56,7 +56,7 @@ function App() {
           />
 
           <Route
-            path="/movie/:id"
+            path="/movies-list-react-app/movie/:id"
             element={<MovieDetails API_KEY={API_KEY} />}
           />
           <Route path="*" element={<ErrorNotFound />} />
