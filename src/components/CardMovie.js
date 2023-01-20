@@ -20,7 +20,7 @@ const CardMovie = ({ mov }) => {
                 <p>Rater number: {mov.vote_count}</p>
                 <p>Rate:{mov.vote_average} </p>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </Link>

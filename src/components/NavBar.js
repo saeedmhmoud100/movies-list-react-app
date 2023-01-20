@@ -10,13 +10,13 @@ const NavBar = ({ search }) => {
         <Row className="pt-2 ">
           <Col xs="2" lg="1">
             <Link to="/movies-list-react-app/">
-              <img className="logo" src={"." + logo} alt="dfs" />
+              <img className="logo" src={logo} alt="dfs" />
             </Link>
           </Col>
           <Col xs="10" lg="11" className=" d-flex align-items-center">
             <div className="search  w-100">
               <img
-                src={"." + search_icon}
+                src={search_icon}
                 className="fa-search"
                 style={{ width: "17px" }}
                 alt="search_logo"

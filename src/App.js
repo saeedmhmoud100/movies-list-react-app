@@ -6,12 +6,15 @@ import NavBar from "./components/NavBar";
 import { Routes, Route } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import ErrorNotFound from "./components/ErrorNotFound";
+import { useDispatch } from "react-redux";
+import { getAllMovies } from "./redux/actions/movieAction";
 
 const API_KEY = "a277e16bf8ca84e2eb0ef98e9d176a7d"; //https://www.themoviedb.org/settings/api
 
 function App() {
   const [MoviesData, setMoviesData] = useState([]);
   const [total_pages, settotal_pages] = useState(0);
+  const Dispatch = useDispatch();
 
   const getMovies = async (search_val) => {
     let movies = [];
