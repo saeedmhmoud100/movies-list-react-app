@@ -1,9 +1,12 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import search_icon from "../images/search_icon.svg";
-const NavBar = ({ search }) => {
+import { getMoviesSearch } from "../redux/actions/movieAction";
+const NavBar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="nav-style w-100">
       <Container>
@@ -25,7 +28,7 @@ const NavBar = ({ search }) => {
                 type="text"
                 className="form-control"
                 placeholder="Search"
-                onChange={(e) => search(e.target.value)}
+                onChange={(e) => dispatch(getMoviesSearch(e.target.value))}
               />
             </div>
           </Col>

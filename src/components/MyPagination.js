@@ -2,6 +2,8 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 
 function MyPagination({ getPage, total_pages }) {
+
+  
   const handlePageClick = (page) => {
     getPage(page.selected + 1);
   };
