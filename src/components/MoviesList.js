@@ -5,7 +5,7 @@ import { getAllMovies } from "../redux/actions/movieAction";
 import CardMovie from "./CardMovie";
 import MyPagination from "./MyPagination";
 
-function MoviesList({ getPage, total_pages }) {
+function MoviesList({ total_pages }) {
   const [MoviesData, setMoviesData] = useState([]);
   const Dispatch = useDispatch();
 
@@ -19,7 +19,6 @@ function MoviesList({ getPage, total_pages }) {
     setMoviesData(MoviesDatas);
   }, [MoviesDatas]);
 
-  
   return (
     <Row className="mt-3">
       {MoviesData.length > 0 ? (
@@ -28,7 +27,7 @@ function MoviesList({ getPage, total_pages }) {
         <h2 className="text-center mt-4">there are no movies...</h2>
       )}
       {MoviesData.length > 0 ? (
-        <MyPagination getPage={getPage} total_pages={total_pages} />
+        <MyPagination total_pages={total_pages} />
       ) : null}
     </Row>
   );

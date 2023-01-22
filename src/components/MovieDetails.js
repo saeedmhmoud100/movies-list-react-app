@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
-function MovieDetails({ API_KEY }) {
+import { useDispatch, useSelector } from "react-redux";
+import { getMovieDetail } from "../redux/actions/movieAction";
+
+function MovieDetails() {
   const params = useParams();
-  const [movie, setMovie] = useState({});
-
-  const getMovieDetails = async (id) => {
-    const m = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
-    );
-
-    setMovie(m.data);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getMovieDetails(params.id);
+    dispatch(getMovieDetail(params.id));
   }, []);
-
+  const movie = useSelector((state) => state.movie);
   return (
     <div className="pb-3">
       <Row className="justify-content-center">
